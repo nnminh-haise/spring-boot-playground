@@ -3,16 +3,19 @@ package nnminh.playground.springbootplayground.role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import java.sql.Timestamp;
+import lombok.experimental.SuperBuilder;
+import nnminh.playground.springbootplayground.helper.BaseEntity;
 
 @Entity
 @Table(name = "roles")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Role {
+@EqualsAndHashCode(callSuper = true)
+@SuperBuilder
+public class Role extends BaseEntity {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,16 +23,4 @@ public class Role {
 
     @Column(nullable = false, unique = true, length = 50)
     private String name;
-
-    @Column(name = "created_at", nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp createdAt;
-
-    @Column(name = "updated_at", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp updatedAt;
-
-    @Column(name = "deleted_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp deletedAt;
 }
