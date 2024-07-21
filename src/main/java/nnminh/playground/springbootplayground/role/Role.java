@@ -1,4 +1,4 @@
-package nnminh.playground.springbootplayground.roles;
+package nnminh.playground.springbootplayground.role;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
