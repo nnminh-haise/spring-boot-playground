@@ -1,4 +1,4 @@
-package nnminh.playground.springbootplayground.employee;
+package nnminh.playground.springbootplayground.helper;
 
 public enum Gender {
     MALE("Male"),
