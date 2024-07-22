@@ -1,9 +1,6 @@
 package nnminh.playground.springbootplayground.helper;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,4 +25,16 @@ public class BaseEntity {
     @Column(name = "deleted_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp deletedAt;
+
+    @PrePersist
+    public void prePersist() {
+        Timestamp now = new Timestamp(System.currentTimeMillis());
+        createdAt = now;
+        updatedAt = now;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = new Timestamp(System.currentTimeMillis());
+    }
 }
