@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
+@MappedSuperclass
 public class Person extends BaseEntity {
     @Column(name = "first_name", nullable = false)
     private String firstName;
